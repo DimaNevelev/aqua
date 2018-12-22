@@ -1,9 +1,9 @@
 package cmd
 
 import (
-	"github.com/dimanevelev/travers/config"
-	"github.com/dimanevelev/travers/handler"
-	"github.com/dimanevelev/travers/persistence"
+	"github.com/dimanevelev/aqua/config"
+	"github.com/dimanevelev/aqua/handler"
+	"github.com/dimanevelev/aqua/persistence"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/render"

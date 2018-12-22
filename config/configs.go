@@ -2,7 +2,7 @@ package config
 
 import (
 	"database/sql"
-	"github.com/dimanevelev/travers/persistence"
+	"github.com/dimanevelev/aqua/persistence"
 	_ "github.com/go-sql-driver/mysql"
 )
 
