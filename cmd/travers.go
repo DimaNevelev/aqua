@@ -20,7 +20,8 @@ var tConfig = config.TraverserConfig{}
 var traversCmd = &cobra.Command{
 	Use:   "travers",
 	Short: "Traverses the file system and sends statistics to a server",
-	Long:  `Traverses the file system and sends statistics to a server. The statistics are file name, path, and size.`,
+	Long: `Traverses the file system and sends file info to a server. example of file info: 
+	{"Path":"/home/example.zip","FileInfo":{"Name":"example.zip","Size":6848,"Mode":436,"ModTime":"2018-12-18T08:12:46.83861937+02:00","IsDir":false}}.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fileHandlerFunc := createFileHandlerFunc()
 		producerConsumer := parallel.NewBounedRunner(tConfig.Threads, false)

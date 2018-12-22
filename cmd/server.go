@@ -18,7 +18,7 @@ var serverCmd = &cobra.Command{
 	Use:   "server",
 	Short: "Starts a server and listens on a provided port",
 	Long: `This command will start a server an expose two api endpoints:
-	- /api/v1/file - Receives and stores POST requests with file information payload of the format {"Path":"/foo/bar","Name":"foo.bar","Size":123}.
+	- /api/v1/file - Receives and stores POST requests with file information payload of the format {"Path":"/home/example.zip","FileInfo":{"Name":"example.zip","Size":6848,"Mode":436,"ModTime":"2018-12-18T08:12:46.83861937+02:00","IsDir":false}}.
 	- /api/v1/stats - Receives GET requests and will return statistics of the received files. 
 		Result example: {"code":200,"data":{"TotalFiles":2,"MaxFile":{"Size":3,"Path":"/foo/bar.abc"},"AvgFileSize":1.5,"Extensions":[".abc",".txt"],"TopExtension":".txt"}}
 `,
