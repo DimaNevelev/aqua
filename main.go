@@ -15,7 +15,7 @@
 package main
 
 import (
-	"github.com/dimanevelev/aqua/cmd"
+	"github.com/dimanevelev/travers/cmd"
 	"log"
 )
 

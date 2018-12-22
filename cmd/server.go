@@ -1,9 +1,9 @@
 package cmd
 
 import (
-	"github.com/dimanevelev/aqua/config"
-	"github.com/dimanevelev/aqua/handler"
-	"github.com/dimanevelev/aqua/persistence"
+	"github.com/dimanevelev/travers/config"
+	"github.com/dimanevelev/travers/handler"
+	"github.com/dimanevelev/travers/persistence"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/render"
@@ -44,12 +44,12 @@ var serverCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(serverCmd)
-	serverCmd.PersistentFlags().StringVar( &sConfig.Port,"port", "8080", "The server port. For https use 443.")
-	serverCmd.PersistentFlags().StringVar( &sConfig.MySqlConf.Port, "db-port", "3306", "The MySql DB port.")
-	serverCmd.PersistentFlags().StringVar( &sConfig.MySqlConf.URL,"db-url", "127.0.0.1", "The MySql DB url.")
-	serverCmd.PersistentFlags().StringVarP( &sConfig.MySqlConf.DBName,"db-name", "n","files", "The MySql DB name.")
-	serverCmd.PersistentFlags().StringVarP( &sConfig.MySqlConf.User,"db-username", "u","root", "The MySql DB username.")
-	serverCmd.PersistentFlags().StringVarP( &sConfig.MySqlConf.Password,"db-password", "p","password", "The MySql DB password.")
+	serverCmd.PersistentFlags().StringVar(&sConfig.Port, "port", "8080", "The server port. For https use 443.")
+	serverCmd.PersistentFlags().StringVar(&sConfig.MySqlConf.Port, "db-port", "3306", "The MySql DB port.")
+	serverCmd.PersistentFlags().StringVar(&sConfig.MySqlConf.URL, "db-url", "127.0.0.1", "The MySql DB url.")
+	serverCmd.PersistentFlags().StringVarP(&sConfig.MySqlConf.DBName, "db-name", "n", "files", "The MySql DB name.")
+	serverCmd.PersistentFlags().StringVarP(&sConfig.MySqlConf.User, "db-username", "u", "root", "The MySql DB username.")
+	serverCmd.PersistentFlags().StringVarP(&sConfig.MySqlConf.Password, "db-password", "p", "password", "The MySql DB password.")
 	//todo add validation
 }
 

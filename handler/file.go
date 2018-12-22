@@ -3,9 +3,9 @@ package handler
 import (
 	"encoding/json"
 	"errors"
-	"github.com/dimanevelev/aqua/model"
-	"github.com/dimanevelev/aqua/persistence"
-	"github.com/dimanevelev/aqua/utils"
+	"github.com/dimanevelev/travers/model"
+	"github.com/dimanevelev/travers/persistence"
+	"github.com/dimanevelev/travers/utils"
 	"github.com/go-chi/chi"
 	"log"
 	"net/http"
@@ -34,7 +34,7 @@ func (handler *FileHandler) Add(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err =validateInput(file)
+	err = validateInput(file)
 	if err != nil {
 		log.Println("Error occurred while validating request", err.Error())
 		utils.SendHTTPError(w, err, 400)

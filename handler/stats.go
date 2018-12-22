@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"github.com/dimanevelev/aqua/model"
-	"github.com/dimanevelev/aqua/persistence"
-	"github.com/dimanevelev/aqua/utils"
+	"github.com/dimanevelev/travers/model"
+	"github.com/dimanevelev/travers/persistence"
+	"github.com/dimanevelev/travers/utils"
 	"github.com/go-chi/chi"
 	"log"
 	"net/http"

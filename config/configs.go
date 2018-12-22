@@ -2,7 +2,7 @@ package config
 
 import (
 	"database/sql"
-	"github.com/dimanevelev/aqua/persistence"
+	"github.com/dimanevelev/travers/persistence"
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -12,7 +12,7 @@ type ServerConfig struct {
 }
 
 type ServerConst struct {
-	Port string
+	Port      string
 	MySqlConf persistence.MySqlConf
 }
 
@@ -29,7 +29,7 @@ func NewServerConfig(consts ServerConst) (ServerConfig, error) {
 }
 
 type TraverserConfig struct {
-	Url string
-	Path string
+	Url     string
+	Path    string
 	Threads int
 }

@@ -3,10 +3,10 @@ package cmd
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/dimanevelev/aqua/config"
-	"github.com/dimanevelev/aqua/model"
-	"github.com/dimanevelev/aqua/parallel"
-	"github.com/dimanevelev/aqua/utils"
+	"github.com/dimanevelev/travers/config"
+	"github.com/dimanevelev/travers/model"
+	"github.com/dimanevelev/travers/parallel"
+	"github.com/dimanevelev/travers/utils"
 	"github.com/spf13/cobra"
 	"log"
 	"net/http"
@@ -20,7 +20,7 @@ var tConfig = config.TraverserConfig{}
 var traversCmd = &cobra.Command{
 	Use:   "travers",
 	Short: "Traverses the file system and sends statistics to a server",
-	Long: `Traverses the file system and sends statistics to a server. The statistics are file name, path, and size.`,
+	Long:  `Traverses the file system and sends statistics to a server. The statistics are file name, path, and size.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fileHandlerFunc := createFileHandlerFunc()
 		producerConsumer := parallel.NewBounedRunner(tConfig.Threads, false)
@@ -49,9 +49,9 @@ var traversCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(traversCmd)
-	traversCmd.PersistentFlags().StringVarP( &tConfig.Url,"url", "u", "http://localhost:8080/api/v1/file", "The target of the requests.")
-	traversCmd.PersistentFlags().StringVarP( &tConfig.Path, "path", "p", ".","The path to start traversing.")
-	traversCmd.PersistentFlags().IntVarP( &tConfig.Threads, "threads", "t", 3,"Number of threads that will send the requests")
+	traversCmd.PersistentFlags().StringVarP(&tConfig.Url, "url", "u", "http://localhost:8080/api/v1/file", "The target of the requests.")
+	traversCmd.PersistentFlags().StringVarP(&tConfig.Path, "path", "p", ".", "The path to start traversing.")
+	traversCmd.PersistentFlags().IntVarP(&tConfig.Threads, "threads", "t", 3, "Number of threads that will send the requests")
 }
 
 type TaskData struct {
@@ -73,7 +73,7 @@ func createFileHandlerFunc() fileContext {
 				ModTime: data.FileInfo.ModTime(),
 				IsDir:   data.FileInfo.IsDir(),
 			}
-			file := model.File{Path: data.FilePath, FileInfo:fileInfo}
+			file := model.File{Path: data.FilePath, FileInfo: fileInfo}
 			body, err := json.Marshal(file)
 			req, err := http.NewRequest("POST", data.Url, bytes.NewBuffer(body))
 			req.Header.Set("Content-Type", "application/json")

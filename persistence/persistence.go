@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
-	"github.com/dimanevelev/aqua/model"
+	"github.com/dimanevelev/travers/model"
 	"path/filepath"
 )
 
